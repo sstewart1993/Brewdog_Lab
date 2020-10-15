@@ -60,11 +60,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
   margin-top: 60px;
+  background-image: url("./components/static/brewdog.jpg");
+  font-weight: bold;
 }
 ul{
   list-style: none;
+}
+.small-bottle {
+  height: 200px
 }
 
 </style>

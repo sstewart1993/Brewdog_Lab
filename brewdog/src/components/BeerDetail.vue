@@ -3,7 +3,7 @@
     <h3>{{ beer.name }}</h3> 
     <p>Percentage: {{ beer.abv }}</p> 
     <p>TagLine: {{ beer.tagline}}</p>
-    <!-- <img class="sml-flag" :src="beerSelected.image"/> -->
+    <img class="small-bottle" :src="beer.image_url">
 
 </div>
   
