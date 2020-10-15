@@ -1,20 +1,32 @@
 <template>
   <div id="app">
+    <h1>BREWDOG BARK!!!!!</h1>
+  <div class="main-container"> 
+    <beers-list :beers='beers'></beers-list>
+    <beer-detail :beer='beerSelected'></beer-detail>
+
+    <favourite-beers :favouriteBeers='favouriteBeers'></favourite-beers>
+  
+  <button v-on:click="addToFavourites">Add Beer</button>
+  
+  </div>
   </div>
 </template>
 
 <script>
 
 import { eventBus } from './main.js';
-import beerList from './BeersList';
-import beerDetail from './BeerDetail';
+import BeersList from './components/BeersList.vue';
+import BeerDetail from './components/BeerDetail.vue';
+import FavouriteBeers from './components/FavouriteBeers';
 
 export default {
   name: 'App',
   data(){
     return{
       beers: [],
-      beerSelected: null
+      beerSelected: null,
+      favouriteBeers: []
     };
   },
 
@@ -24,14 +36,21 @@ export default {
     .then(beers => this.beers = beers)
 
     eventBus.$on('beer-selected', (beer) =>{
-      this.selectedBeer = beer
+      this.beerSelected = beer
     })
   },
 
   components: {
     'beers-list': BeersList,
     'beer-detail': BeerDetail,
-  }
+    'favourite-beers': FavouriteBeers,
+  },
+  methods: {
+
+    addToFavourites: function(){
+        this.favouriteBeers.push(this.beerSelected)
+      }
+  },
 }
 </script>
 
@@ -44,4 +63,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+ul{
+  list-style: none;
+}
+
 </style>

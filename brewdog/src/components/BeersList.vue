@@ -1,17 +1,17 @@
-<template lang='html'>
-<div>   
+<template>
+<div v-if="beers">   
     <ul>
-        <list-item v-for="(beer, index) in beers" :beer="beer" :key="index"></list-item>
+        <beer-item v-for="(beer, index) in beers" :beer="beer" :key="index"> </beer-item>
     </ul>
 </div>
 </template>
 
 <script>
-import BeerItem from './BeerItem';
+import BeerItem from './BeerItem.vue';
 
 export default {
-    name: 'beer-list',
-    props: ['beer'],
+    name: 'beers-list',
+    props: ['beers'],
     components: {
         'beer-item': BeerItem
     }
